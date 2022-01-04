@@ -129,12 +129,13 @@ public class HistoricalAdherenceQuery {
 
             // Save the operation ID
             String operationId = pendingResult.getId();
-
+            // >> END historical-adherence-query-step-8
+            
             // >> START historical-adherence-query-step-10
             // Wait for the query to complete
             waitUntil(() -> historicalAdherenceEventListener.isCompleted(operationId), 15, 1000);
         
-        // >> END historical-adherence-query-step-8
+        
 
             // Call the listener with the operation ID of the, now completed, request.
             WfmHistoricalAdherenceCalculationsCompleteTopicWfmHistoricalAdherenceCalculationsCompleteNotice completedResult = historicalAdherenceEventListener.getResultForId(operationId);
