@@ -43,7 +43,9 @@ public class HistoricalAdherenceQuery {
         // Create an instance of UsersApi to retrieve your own userId
         UsersApi usersApi = new UsersApi();
         UserMe me = usersApi.getUsersMe(Collections.emptyList(), null);
-        String myId = me.getId();
+        final String myId = me.getId();
+        // When not operating in the context of a user use the oauth client ID instead
+        // final String myId = System.getenv("GENESYS_CLOUD_CLIENT_ID");
         // >> END historical-adherence-query-step-2
 
         // >> START historical-adherence-query-step-3
